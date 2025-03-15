@@ -7,7 +7,7 @@ import { BarBarEqualsToken } from 'typescript';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RegisterComponent, LoginComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   standalone: true

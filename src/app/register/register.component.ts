@@ -2,6 +2,10 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+
+
+
 
 @Component({
   selector: 'app-register',
@@ -16,7 +20,7 @@ export class RegisterComponent implements OnInit {
   @Output() registered = new EventEmitter<string>();
   @Output() exportRegister = new EventEmitter<boolean>();
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {}
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -48,6 +52,7 @@ export class RegisterComponent implements OnInit {
       next: (response) => {
         console.log('Registro exitoso:', response);
         this.exportRegister.emit(true);
+        this.router.navigate(['/login']);
       },
       error: (error) => {
         console.error('Error en el registro:', error);
@@ -55,4 +60,9 @@ export class RegisterComponent implements OnInit {
       }
     });
   }
+  goToLogin(): void {
+    this.router.navigate(['/login']); // Redirige al login
+  }
+
+  
 }

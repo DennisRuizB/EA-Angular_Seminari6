@@ -1,10 +1,2 @@
-@if(registered)
-{
-    <app-login></app-login>
-}
-@else  {
-    <app-register (exportRegister)="getRegistered($event)"></app-register>
-    <!-- <app-login (exportLoggedIn)="getLoggedIn($event)"></app-login> -->
-}
 
-<router-outlet />
+<router-outlet></router-outlet>

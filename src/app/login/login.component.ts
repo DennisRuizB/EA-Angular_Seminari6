@@ -3,6 +3,7 @@ import { Component, inject, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   @Output() loggedin = new EventEmitter<string>();
   @Output() exportLoggedIn = new EventEmitter<boolean>();
 
-  constructor(private form: FormBuilder){
+  constructor(private form: FormBuilder, private router: Router ){
     this.formularioLogin = this.form.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]], 
@@ -51,6 +52,9 @@ ngOnInit(): void {
       next: (response) => {
         console.log('Login exitoso:', response);
         this.exportLoggedIn.emit(true);
+        this.router.navigate(['/users']);
+
+
       
       },
       error: (error) => {

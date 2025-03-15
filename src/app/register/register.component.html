@@ -49,6 +49,15 @@
           </div>
         </td>
       </tr>
-        <td colspan="2"><button type="submit">Register</button></td>
+      <tr>
+        <td colspan="2">
+            <button type="submit" [disabled]="registerForm.invalid || registerForm.pristine" [class.disabled]="registerForm.invalid || registerForm.pristine" [style.opacity]="registerForm.invalid || registerForm.pristine ? 0.5 : 1">Register</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button type="button" (click)="goToLogin()">Go to Login</button>
+        </td>
+      </tr>
     </table>
   </form>
