@@ -17,8 +17,6 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
-  @Output() registered = new EventEmitter<string>();
-  @Output() exportRegister = new EventEmitter<boolean>();
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) {}
 
@@ -51,7 +49,6 @@ export class RegisterComponent implements OnInit {
     this.authService.register(registerData).subscribe({
       next: (response) => {
         console.log('Registro exitoso:', response);
-        this.exportRegister.emit(true);
         this.router.navigate(['/login']);
       },
       error: (error) => {
