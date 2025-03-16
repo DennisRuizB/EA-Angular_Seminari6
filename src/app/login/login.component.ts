@@ -60,4 +60,8 @@ ngOnInit(): void {
       }
     });
   }
+
+  goToRegister(): void {
+    this.router.navigate(['/register']); // Redirige al register
+  }
 }

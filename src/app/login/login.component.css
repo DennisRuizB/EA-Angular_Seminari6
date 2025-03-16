@@ -6,6 +6,24 @@
 }
 .btn-primary {
     margin-top: 20px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition-duration: 0.4s;
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #007bff;
 }
 .mb-3 {
     margin-top: 20px;
